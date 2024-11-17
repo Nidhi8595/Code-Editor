@@ -87,7 +87,7 @@ const Intro = () => {
 
 
 
-            <div className="footer h-auto py-8 text-white flex flex-col items-center">
+            <div className="footer textShadow h-auto py-8 text-white flex flex-col items-center">
                 {/* Footer Top Section */}
                 <div className="footer-top flex flex-wrap items-center justify-between w-full px-8 lg:px-16">
                     {/* Circular Logo */}
@@ -105,8 +105,8 @@ const Intro = () => {
                                 CodeNova empowers developers to craft and execute code effortlessly, offering an intuitive coding experience.
                             </p>
                         </div>
-                        <div className="footer-section text-center">
-                            <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+                        <div className="footer-section pb-10 text-center">
+                            <h3 className="text-xl font-semibold mb-3">Quick Links</h3>
                             <ul className="space-y-2">
                                 <li><Link to="/workspace" className="hover:underline">Start Coding</Link></li>
                                 <li><a href="#resources" className="hover:underline">Resources</a></li>
