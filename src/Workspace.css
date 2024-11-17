@@ -83,3 +83,12 @@
     white-space: pre-wrap;
     font-family: monospace;
 }
+
+
+.language-selector {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}

@@ -5,20 +5,41 @@ import { Editor } from '@monaco-editor/react';
 const Workspace = () => {
     const [code, setCode] = useState('// Write your code here...');
     const [language, setLanguage] = useState('javascript');
-    const [theme, setTheme] = useState('vs-dark'); // Default theme
+    const [theme, setTheme] = useState('vs-dark');
     const [output, setOutput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [folders, setFolders] = useState([]);
+    const [activeFile, setActiveFile] = useState(null);
+
+    const languageMappings = {
+        js: 'javascript',
+        py: 'python',
+        cpp: 'cpp',
+        java: 'java',
+        html: 'html',
+        css: 'css',
+        c: 'c',
+        php: 'php',
+        rb: 'ruby',
+        go: 'go',
+        swift: 'swift',
+        rs: 'rust',
+    };
 
     const handleEditorChange = (value) => {
         setCode(value);
     };
 
     const runCode = async () => {
+        if (!activeFile) {
+            alert('No file selected.');
+            return;
+        }
+
         setIsLoading(true);
         try {
-            // Simulating API execution (Replace this with your JDoodle integration)
-            const fakeOutput = `Executing ${language} code...`;
+            // Simulate code execution based on language
+            const fakeOutput = `Running ${language} code for ${activeFile}...`;
             setTimeout(() => {
                 setOutput(fakeOutput);
                 setIsLoading(false);
@@ -40,8 +61,14 @@ const Workspace = () => {
     };
 
     const addFileToFolder = (folderIndex) => {
-        const fileName = prompt('Enter file name (e.g., main.js):');
+        const fileName = prompt('Enter file name with extension (e.g., main.js):');
         if (fileName) {
+            const extension = fileName.split('.').pop();
+            if (!languageMappings[extension]) {
+                alert('Unsupported file extension.');
+                return;
+            }
+
             setFolders((prevFolders) =>
                 prevFolders.map((folder, index) =>
                     index === folderIndex
@@ -63,6 +90,21 @@ const Workspace = () => {
                     : folder
             )
         );
+        if (activeFile === fileName) {
+            setActiveFile(null);
+            setCode('// Write your code here...');
+        }
+    };
+
+    const openFile = (fileName) => {
+        setActiveFile(fileName);
+        const extension = fileName.split('.').pop();
+        setLanguage(languageMappings[extension] || 'plaintext');
+        setCode('// Start coding here...'); // Reset editor content
+    };
+
+    const changeLanguage = (newLanguage) => {
+        setLanguage(newLanguage);
     };
 
     return (
@@ -76,7 +118,7 @@ const Workspace = () => {
                             <ul>
                                 {folder.files.map((file) => (
                                     <li key={file}>
-                                        {file}{' '}
+                                        <span onClick={() => openFile(file)}>{file}</span>
                                         <button
                                             onClick={() =>
                                                 deleteFileFromFolder(folderIndex, file)
@@ -98,8 +140,21 @@ const Workspace = () => {
             </nav>
             <main className="workspace-main">
                 <div className="editor-header">
-                    <h2>Editor</h2>
+                    <h2>
+                        Editor - {activeFile ? activeFile : 'No File Selected'}
+                    </h2>
                     <div className="editor-options">
+                        <select
+                            value={language}
+                            onChange={(e) => changeLanguage(e.target.value)}
+                            className="language-selector"
+                        >
+                            {Object.values(languageMappings).map((lang) => (
+                                <option key={lang} value={lang}>
+                                    {lang.charAt(0).toUpperCase() + lang.slice(1)}
+                                </option>
+                            ))}
+                        </select>
                         <select
                             value={theme}
                             onChange={(e) => setTheme(e.target.value)}
