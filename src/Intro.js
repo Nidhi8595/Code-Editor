@@ -89,16 +89,16 @@ const Intro = () => {
 
             <div className="footer textShadow h-auto py-8 text-white flex flex-col items-center">
                 {/* Footer Top Section */}
-                <div className="footer-top flex flex-wrap items-center justify-between w-full px-8 lg:px-16">
+                <div className="footer-top flex flex-wrap justify-between w-full px-8 lg:px-16">
                     {/* Circular Logo */}
-                    <div className="footer-logo flex-shrink-0 mb-4 lg:mb-0">
-                        <div className="logo-circle w-20 h-20 rounded-full overflow-hidden border-4 border-white">
+                    <div className="footer-logo mt-8 flex-shrink-0  lg:mb-0">
+                        <div className="logo-circle  w-[110px] h-[110px] rounded-full overflow-hidden border-4 border-white ">
                             <img src={logo} alt="CodeNova Logo" className="w-full h-full object-cover" />
                         </div>
                     </div>
 
                     {/* Footer Content */}
-                    <div className="footer-content  flex flex-col lg:flex-row justify-between flex-grow w-full lg:pl-8 gap-8">
+                    <div className="footer-content  flex  lg:flex-row justify-around flex-grow w-full lg:pl-8 gap-8">
                         <div className="footer-section ml-10 text-center">
                             <h3 className="text-xl font-semibold mb-4">About CodeNova</h3>
                             <p className="text-sm max-w-[250px]">
