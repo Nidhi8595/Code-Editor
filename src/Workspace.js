@@ -139,8 +139,8 @@ const Workspace = () => {
                 </ul>
             </nav>
             <main className="workspace-main">
-                <div className="editor-header">
-                    <h2>
+                <div className="editor-header shadow-lg shadow-black">
+                    <h2 className='textShadow text-2xl font-semibold'>
                         Editor - {activeFile ? activeFile : 'No File Selected'}
                     </h2>
                     <div className="editor-options">
