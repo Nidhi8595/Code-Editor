@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.textShadow {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.945);
+}
+
+.textShadow2{
+    text-shadow: 3px 3px 8px rgba(159, 48, 187, 0.74);
+}
+
+button {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.438),
+      0px -10px 10px rgba(0, 0, 0, 0.438), -10px 0px 10px rgba(0, 0, 0, 0.438),
+      10px 0px 10px rgba(0, 0, 0, 0.438);
+  }
+  

@@ -1,0 +1,53 @@
+.workspace {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.workspace-nav {
+    width: 20%;
+    background-color: #f3f4f6;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.workspace-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.workspace-nav ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.workspace-nav ul li:hover {
+    background-color: #ddd;
+}
+
+.workspace-main {
+    flex: 1;
+    padding: 20px;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.run-btn {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.run-btn:hover {
+    background-color: #45a049;
+}

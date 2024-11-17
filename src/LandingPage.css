@@ -1,0 +1,142 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+/* LandingPage.css */
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width:100vw;
+  background-color:rgba(114, 45, 114, 0.582);
+  
+  font-family:sans-serif;
+  overflow: hidden;
+}
+
+/* Loading Section */
+.loading-container {
+  text-align: center;
+  
+}
+
+.Loading {
+  font-size: 3rem;
+  color:black;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.progress-bar {
+  width: 80%;
+  height: 20px;
+  /* background-color: #e0e0e0; */
+  border-radius: 10px;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.904);
+}
+
+.progress {
+  height: 100%;
+  background-color:white ;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+p {
+  font-size: 1.5rem;
+  color:black;
+  font-weight: bold;
+  margin-top: 10px;
+  opacity: 70%;
+}
+
+/* 3D Cube Animation */
+.cube-container {
+  perspective: 1200px;  /* Gives the illusion of 3D space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-top: 10px;
+}
+
+.cube {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  transform-style: preserve-3d;
+  animation: rotateCube 5s infinite linear;
+}
+
+.cube-face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  /* background-color: #fff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.692);
+  border-radius: 10px;
+}
+
+.cube-face.front {
+  transform: translateZ(100px);
+}
+
+.cube-face.back {
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.cube-face.left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.cube-face.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.cube-face.top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.cube-face.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* Cube Icon */
+.cube-icon {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.cube-icon:hover {
+  transform: scale(1.7);  /* Slight enlargement on hover */
+}
+
+
+/* Fade-in effect for the page */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation for rotating the cube */
+@keyframes rotateCube {
+  from {
+    transform: rotateX(0) rotateY(0);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
