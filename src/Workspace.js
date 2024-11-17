@@ -6,6 +6,7 @@ const Workspace = () => {
     const [code, setCode] = useState('// Write your code here...');
     const [language, setLanguage] = useState('javascript');
     const [theme, setTheme] = useState('vs-dark');
+    const [fontSize, setFontSize] = useState(14); // Default font size
     const [output, setOutput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [folders, setFolders] = useState([]);
@@ -38,7 +39,6 @@ const Workspace = () => {
 
         setIsLoading(true);
         try {
-            // Simulate code execution based on language
             const fakeOutput = `Running ${language} code for ${activeFile}...`;
             setTimeout(() => {
                 setOutput(fakeOutput);
@@ -100,7 +100,7 @@ const Workspace = () => {
         setActiveFile(fileName);
         const extension = fileName.split('.').pop();
         setLanguage(languageMappings[extension] || 'plaintext');
-        setCode('// Start coding here...'); // Reset editor content
+        setCode('// Start coding here...');
     };
 
     const changeLanguage = (newLanguage) => {
@@ -139,8 +139,8 @@ const Workspace = () => {
                 </ul>
             </nav>
             <main className="workspace-main">
-                <div className="editor-header shadow-lg shadow-black">
-                    <h2 className='textShadow text-2xl font-semibold'>
+                <div className="editor-header">
+                    <h2>
                         Editor - {activeFile ? activeFile : 'No File Selected'}
                     </h2>
                     <div className="editor-options">
@@ -163,6 +163,17 @@ const Workspace = () => {
                             <option value="vs-dark">Dark</option>
                             <option value="light">Light</option>
                         </select>
+                        <select
+                            value={fontSize}
+                            onChange={(e) => setFontSize(Number(e.target.value))}
+                            className="font-size-selector"
+                        >
+                            {[10, 12, 14, 16, 18, 20, 24].map((size) => (
+                                <option key={size} value={size}>
+                                    {size}px
+                                </option>
+                            ))}
+                        </select>
                         <button className="run-btn" onClick={runCode} disabled={isLoading}>
                             {isLoading ? 'Running...' : 'Run'}
                         </button>
@@ -174,6 +185,9 @@ const Workspace = () => {
                     value={code}
                     onChange={handleEditorChange}
                     theme={theme}
+                    options={{
+                        fontSize: fontSize,
+                    }}
                 />
                 <div className="output">
                     <h3>Output:</h3>
