@@ -1,104 +1,159 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .intro {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    background-color: #f3f4f6;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: #f3f4f6;
 }
 
-.header ul li{
-    border-bottom: 3px solid black;
+.header ul li {
+  border-bottom: 3px solid black;
 }
 
-.header ul li:hover{
-    border-bottom: 3px solid #9333ea;
+.header ul li:hover {
+  border-bottom: 3px solid #9333ea;
 }
 
 .iconsTab ul li {
-    height: 55px;
-    width: 55px;
-    border-radius: 10px;
-    background-color: rgba(169, 169, 169, 0.253);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  background-color: rgba(169, 169, 169, 0.253);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iconsTab ul li img {
-    height: 30px;
-    /* width: 30px; */
-    overflow: hidden;
+  height: 30px;
+  /* width: 30px; */
+  overflow: hidden;
 
-    border-radius:8px;
-    
+  border-radius: 8px;
 }
 
 .start-coding-container {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .start-coding-btn {
-    width: 12rem;
-    height:3rem;
-    /* padding: 10px 20px; */
-    font-size: 1.5rem;
-    background-color: hsl(271, 81%, 56%);
-    color: white;
-    border: none;
-    border-radius: 13px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  font-size: 17px;
+  font-weight: 700;
+
+  padding-left: 15px;
+  padding-right: 3px;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  background: linear-gradient(90deg, #1c4588, #49206e);
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(8, 6, 10, 0.836);
+  transition: all 0.1s ease-in-out;
 }
 
 .start-coding-btn:hover {
-    background-color: #7b2cd5;
-    transform: scale(1.1);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgb(13, 8, 17);
+}
+
+.start-coding-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 300%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.start-coding-btn:hover::before {
+  left: 100%;
+}
+
+.start-coding-btn-icon {
+  font-size: 26px;
+}
+
+.banner {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.animation-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.banner h1 {
+  z-index: 10; /* Ensures text stays above the animation */
 }
 
 /* Footer Container */
 .footer {
-    background: linear-gradient(135deg, #946ec4, #342253); /* Simple Gradient */
-    font-family: 'Roboto', sans-serif;
-    position: relative;
+  background: linear-gradient(135deg, #946ec4, #342253); /* Simple Gradient */
+  font-family: "Roboto", sans-serif;
+  position: relative;
 }
 
 /* Circular Logo */
 .logo-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer Section Titles */
 .footer h3 {
-    text-transform: uppercase;
-    color: #f3e5f5; /* Light Purple */
+  text-transform: uppercase;
+  color: #f3e5f5; /* Light Purple */
 }
 
 /* Footer Links */
 .footer a {
-    color: #d1c4e9; /* Muted Purple */
-    transition: color 0.3s;
+  color: #d1c4e9; /* Muted Purple */
+  transition: color 0.3s;
 }
 
 .footer a:hover {
-    color: white;
+  color: white;
 }
 
 /* Footer Text */
 .footer p {
-    color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .footer-bottom {
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }

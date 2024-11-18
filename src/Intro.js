@@ -1,12 +1,16 @@
 
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Intro.css'; // Updated CSS file
 import logo from "./logo.webp";
 import UserContext from './utils/UserContext';
 import FormComponent from './FormComponent';
+import lottie from 'lottie-web';
+import animation1 from "../public/Animation1.json";
 
 const Intro = () => {
+    const animationContainer = useRef(null);
+
     const { loggedInUser, setLoggedInUser } = useContext(UserContext);
     const [btnNameReact, setBtnNameReact] = useState(loggedInUser === 'Default User' ? 'Login' : 'Logout');
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,6 +26,16 @@ const Intro = () => {
             setBtnNameReact('Login');
         }
     };
+
+    useEffect(() => {
+        lottie.loadAnimation({
+            container: animationContainer.current,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            animationData: animation1, // Use imported JSON animation
+        });
+    }, []);
 
     return (
         <div className="intro">
@@ -44,16 +58,31 @@ const Intro = () => {
                 {isModalOpen && <FormComponent closeModal={() => setIsModalOpen(false)} />}
             </div>
 
-            <div className="banner pt-16 h-[350px] w-full text-8xl/[118px] font-semibold">
-                <h1 className='textShadow mx-auto w-3/4 text-gray-950'>"Crafting code,</h1>
-                <h1 className='textShadow mx-auto w-3/4 text-gray-950 '>Redefining ease"</h1>
+            
 
+            <div className="banner pt-16 h-[350px] w-full text-8xl/[118px] font-semibold">
+                <div ref={animationContainer} className="animation-background absolute inset-0"></div>
+                <div className='relative z-10 pt-5 w-2/3 left-1/3'>
+                    <h1 className="textShadow mx-auto  text-gray-950">
+                        "Crafting code,"
+                    </h1>
+                    <h1 className="textShadow mx-auto  text-gray-950">
+                        Redefining ease"
+                    </h1>
+                </div>
             </div>
-            <div className="start-coding-container w-full h-[70px] mb-5">
+
+            
+
+            <div className="start-coding-container w-full h-[80px] mb-5 flex justify-center items-center ">
                 <Link to="/workspace">
-                    <button className="start-coding-btn ">Start Coding</button>
+                    <button className="start-coding-btn textShadow">
+                        <span className="start-coding-btn-icon">💻</span> 
+                        Launch Workspace
+                    </button>
                 </Link>
             </div>
+
 
             <div className='h-[500px] flex flex-col justify-center align-center gap-8 w-full bg-black'>
                 <h1 className='textShadow2 text-purple-400 text-8xl/[110px] font-serif '>
